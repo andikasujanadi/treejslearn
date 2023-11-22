@@ -20,7 +20,7 @@ const moveCamera = (x) => {
 const renderer = new THREE.WebGLRenderer();
 renderer.shadowMap.enabled  = true;
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+threeContainer.appendChild(renderer.domElement);
 
 // create camera orbit
 const orbit = new THREE.OrbitControls(camera, renderer.domElement)
