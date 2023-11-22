@@ -4,6 +4,19 @@ const scene = new THREE.Scene();
 // create camera
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 20;
+camera.position.y = 10;
+camera.rotation.x = -0.5;
+
+// moveCamera(camera, 2);
+
+function moveCamera(camera, x){
+    const resolution = 100;
+    for (let index = 0; index < Math.abs(x)*resolution; index++) {
+        setTimeout(() => {
+            camera.position.x += Math.abs(x)/x/resolution;
+        }, index);
+    }
+}
 
 // render scene
 const renderer = new THREE.WebGLRenderer();
@@ -12,8 +25,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // create camera orbit
-const orbit = new THREE.OrbitControls(camera, renderer.domElement)
-orbit.update;
+// const orbit = new THREE.OrbitControls(camera, renderer.domElement)
+// orbit.update;
 
 // add light
 const ambientLight = new THREE.AmbientLight(0x505090);
