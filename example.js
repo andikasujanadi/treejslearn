@@ -23,8 +23,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 threeContainer.appendChild(renderer.domElement);
 
 // create camera orbit
-const orbit = new THREE.OrbitControls(camera, renderer.domElement)
-orbit.update;
+// const orbit = new THREE.OrbitControls(camera, renderer.domElement)
+// orbit.update;
 
 // add light
 const ambientLight = new THREE.AmbientLight(0x505090);
@@ -73,8 +73,9 @@ var suzzane_material = new THREE.MeshStandardMaterial({
     // side: THREE.DoubleSide
 
 });
+var suzanne;
 loader.load( 'suzanne.gltf', function (gltf) {
-    const suzanne = gltf.scene
+    suzanne = gltf.scene
     suzanne.position.y = 0.3;
     suzanne.position.x = 0.3;
     suzanne.traverse(function(child){
@@ -116,3 +117,9 @@ window.addEventListener('resize', function() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 })
+
+// scroll
+window.onscroll = function() {
+    var scrollPosition = window.scrollY;
+    suzanne.rotation.y=scrollPosition/500;
+  };
