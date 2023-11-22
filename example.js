@@ -7,9 +7,7 @@ camera.position.z = 20;
 camera.position.y = 10;
 camera.rotation.x = -0.5;
 
-// moveCamera(camera, 2);
-
-function moveCamera(camera, x){
+const moveCamera = (x) => {
     const resolution = 100;
     for (let index = 0; index < Math.abs(x)*resolution; index++) {
         setTimeout(() => {
@@ -25,8 +23,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // create camera orbit
-// const orbit = new THREE.OrbitControls(camera, renderer.domElement)
-// orbit.update;
+const orbit = new THREE.OrbitControls(camera, renderer.domElement)
+orbit.update;
 
 // add light
 const ambientLight = new THREE.AmbientLight(0x505090);
@@ -85,15 +83,11 @@ loader.load( 'suzanne.gltf', function (gltf) {
             child.castShadow = true;
             child.receiveShadow = true;
         }
-    } );
-    
-
-
+    });
 	scene.add(suzanne);
 }, undefined, function ( error ) {
 	console.error( error );
-} );
-
+});
 
 
 // add object to scene
@@ -107,8 +101,8 @@ scene.background = new THREE.Color('#e5e5e5');
 const animate = () => {
     requestAnimationFrame(animate);
 
-    // cylinder.rotation.x += 0.01;
-    // cylinder.rotation.y += 0.01;
+    cylinder.rotation.x += 0.01;
+    cylinder.rotation.z += 0.01;
 
     renderer.render(scene, camera);
 }
