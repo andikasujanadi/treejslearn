@@ -7,6 +7,7 @@ camera.position.z = 20;
 
 // render scene
 const renderer = new THREE.WebGLRenderer();
+renderer.shadowMap.enabled  = true;
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -14,44 +15,67 @@ document.body.appendChild(renderer.domElement);
 const orbit = new THREE.OrbitControls(camera, renderer.domElement)
 orbit.update;
 
+// add light
+const ambientLight = new THREE.AmbientLight(0x505090);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF);
+directionalLight.position.set(-20,10,20);
+directionalLight.castShadow = true;
+scene.add(directionalLight);
+
+const dLightHelper = new THREE.DirectionalLightHelper(directionalLight);
+scene.add(dLightHelper);
+
+const dLightShadowHelper = new THREE.DirectionalLightHelper(directionalLight);
+scene.add(dLightShadowHelper);
+
 // create 3d object
 const axesHelper = new THREE.AxesHelper(20);
 const gridHelper = new THREE.GridHelper(30);
 
-const cylinderGeometry = new THREE.CylinderBufferGeometry(2, 2, 7, 12);
-const CylinderMaterial = new THREE.MeshBasicMaterial({
+const cylinderGeometry = new THREE.CylinderBufferGeometry(1, 1, 2, 12);
+const CylinderMaterial = new THREE.MeshStandardMaterial({
     color: '#8bc34a',
-    wireframe: true,
+    // wireframe: true,
 });
 const cylinder = new THREE.Mesh(cylinderGeometry, CylinderMaterial);
-cylinder.position.x = 10;
-cylinder.position.y = 4;
+cylinder.position.x = -2;
+cylinder.position.y = 1;
+cylinder.castShadow = true;
+cylinder.receiveShadow = true;
 
 const planeGeometry = new THREE.PlaneGeometry(30,30);
-const planeMaterial = new THREE.MeshBasicMaterial({
+const planeMaterial = new THREE.MeshStandardMaterial({
     color: '#FFFFFF',
     side: THREE.DoubleSide
 
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.rotation.x = - 0.5 * Math.PI;
+plane.receiveShadow = true;
 
 // load suzanne without default material
 const loader = new THREE.GLTFLoader();
-var suzzane_material = new THREE.MeshBasicMaterial({
+var suzzane_material = new THREE.MeshStandardMaterial({
     color: '#FF0000',
     // side: THREE.DoubleSide
 
 });
 loader.load( 'suzanne.gltf', function (gltf) {
-    const suzanne = gltf.scene 
+    const suzanne = gltf.scene
     suzanne.position.y = 0.3;
     suzanne.position.x = 0.3;
     suzanne.traverse(function(child){
         if (child instanceof THREE.Mesh) {
             child.material = suzzane_material;
+            child.castShadow = true;
+            child.receiveShadow = true;
         }
     } );
+    
+
+
 	scene.add(suzanne);
 }, undefined, function ( error ) {
 	console.error( error );
@@ -60,7 +84,7 @@ loader.load( 'suzanne.gltf', function (gltf) {
 
 
 // add object to scene
-scene.add(axesHelper);
+// scene.add(axesHelper);
 scene.add(gridHelper);
 scene.add(cylinder);
 scene.add(plane);
