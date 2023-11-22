@@ -19,7 +19,7 @@ orbit.update;
 const ambientLight = new THREE.AmbientLight(0x505090);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xFFFFFF);
+const directionalLight = new THREE.DirectionalLight(0xFFFF30);
 directionalLight.position.set(-20,10,20);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
