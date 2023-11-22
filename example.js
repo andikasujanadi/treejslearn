@@ -6,6 +6,7 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 camera.position.z = 10;
 camera.position.y = 5;
 camera.rotation.x = -0.5;
+camera.position.x = -3;
 
 const moveCamera = (x) => {
     const resolution = 100;
