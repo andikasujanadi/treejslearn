@@ -3,10 +3,10 @@ const scene = new THREE.Scene();
 
 // create camera
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 10;
-camera.position.y = 5;
-camera.rotation.x = -0.5;
-camera.position.x = -3;
+camera.position.z = 2;
+camera.position.y = 3;
+camera.position.x = 0;
+camera.lookAt(0,.5,0);
 
 const moveCamera = (x) => {
     const resolution = 100;
@@ -20,6 +20,7 @@ const moveCamera = (x) => {
 // render scene
 const renderer = new THREE.WebGLRenderer();
 renderer.shadowMap.enabled  = true;
+renderer.shadowMap.type  = THREE.PCFSoftShadowMap;
 renderer.setSize(window.innerWidth, window.innerHeight);
 threeContainer.appendChild(renderer.domElement);
 
@@ -31,9 +32,10 @@ threeContainer.appendChild(renderer.domElement);
 const ambientLight = new THREE.AmbientLight(0x505090);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xFFFF30);
+const directionalLight = new THREE.DirectionalLight(0xFFFF70);
 directionalLight.position.set(-20,10,20);
 directionalLight.castShadow = true;
+directionalLight.shadow.bias = -0.0002;
 scene.add(directionalLight);
 
 const dLightHelper = new THREE.DirectionalLightHelper(directionalLight);
@@ -70,18 +72,18 @@ plane.receiveShadow = true;
 // load suzanne without default material
 const loader = new THREE.GLTFLoader();
 var suzzane_material = new THREE.MeshStandardMaterial({
-    color: '#FF0000',
+    // color: '#FF0000',
     // side: THREE.DoubleSide
 
 });
 var suzanne;
-loader.load( 'suzanne.gltf', function (gltf) {
+loader.load( 'ring.glb', function (gltf) {
     suzanne = gltf.scene
     suzanne.position.y = 0.3;
     suzanne.position.x = 0.3;
     suzanne.traverse(function(child){
         if (child instanceof THREE.Mesh) {
-            child.material = suzzane_material;
+            // child.material = suzzane_material;
             child.castShadow = true;
             child.receiveShadow = true;
         }
@@ -122,5 +124,5 @@ window.addEventListener('resize', function() {
 // scroll
 window.onscroll = function() {
     var scrollPosition = window.scrollY;
-    suzanne.rotation.y=scrollPosition/500;
+    suzanne.rotation.y=-scrollPosition/500;
   };
