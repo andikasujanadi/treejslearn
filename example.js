@@ -18,7 +18,7 @@ const moveCamera = (x) => {
 }
 
 // render scene
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.shadowMap.enabled  = true;
 renderer.shadowMap.type  = THREE.PCFSoftShadowMap;
 renderer.setSize(window.innerWidth, window.innerHeight);
