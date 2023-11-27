@@ -17,15 +17,21 @@ const cameraCut1 = {
     cameraX: 0,
     cameraY: 8,
     cameraZ: 4.5,
+    cameraLookX:0.1,
+    cameraLookY:-1.0,
+    CameraLookZ:0.1,
     cameraRotationX:-1.1071487177940904,
     cameraRotationY:0,
     CameraRotationZ:0,
 }
 
 const cameraCut2 = {
-    cameraX: 0,
+    cameraX: 1.7,
     cameraY: 2.5,
-    cameraZ: 4.5,
+    cameraZ: 4.3,
+    cameraLookX:0.57,
+    cameraLookY:0.6,
+    CameraLookZ:2.5,
     cameraRotationX:-0.32175055439664224,
     cameraRotationY:0,
     CameraRotationZ:0,
@@ -59,12 +65,12 @@ const cameraCut5 = {
 }
 
 const cameraCut6 = {
-    cameraX: -2,
-    cameraY: 3.6,
-    cameraZ: -4.5,
-    cameraRotationX:-1.9723641818256934,
-    cameraRotationY:0.45683107579898935,
-    CameraRotationZ:-2.3371799539275013,
+    cameraX: -0.8068846865833008,
+    cameraY: 2.6521796457250355,
+    cameraZ: -3.782608039318661,
+    cameraRotationX: -2.1428560416882307,
+    cameraRotationY: -0.07700965383297187,
+    CameraRotationZ: -3.022671819741038,
 }
 
 // create scene
@@ -183,10 +189,10 @@ window.addEventListener('mousedown', () => {
 const cameras = [
     cameraCut1,
     cameraCut2,
-    cameraCut3,
-    cameraCut4,
-    cameraCut5,
-    cameraCut6,
+    // cameraCut3,
+    // cameraCut4,
+    // cameraCut5,
+    // cameraCut6,
 ]
 
 index = 0;
@@ -207,12 +213,23 @@ const next = () => {
         }
     });
 
-    gsap.to(camera.rotation, {
-        x:angle.cameraRotationX,
-        y:angle.cameraRotationY,
-        z:angle.CameraRotationZ,
-        duration:1.5,
-    });
+    if(false){
+        gsap.to(camera.rotation, {
+            x:angle.cameraRotationX,
+            y:angle.cameraRotationY,
+            z:angle.CameraRotationZ,
+            duration:1.5,
+        });
+    }
+
+    if(true){
+        gsap.to(orbit.target, {
+            x:angle.cameraLookX,
+            y:angle.cameraLookY,
+            z:angle.CameraLookZ,
+            duration:1.5,
+        });
+    }
 }
 
 // call animate to display
