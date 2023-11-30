@@ -134,36 +134,38 @@ const animate = () => {
 const centerCamera = () =>{
     camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.CameraLookZ);
 }
-const gui = new dat.GUI();
-gui.addColor(options, 'dirLight').onChange(function(e){
+const cameraGui = new dat.GUI({autoPlace: true});
+const lightGui = new dat.GUI({autoPlace: false});
+document.querySelector('.dg.ac').style.top="200px";
+lightGui.addColor(options, 'dirLight').onChange(function(e){
     directionalLight.color.set(e);
     centerCamera();
 });
-gui.addColor(options, 'ambLight').onChange(function(e){
+lightGui.addColor(options, 'ambLight').onChange(function(e){
     ambientLight.color.set(e);
     centerCamera();
 });
-gui.add(cameraOption, 'cameraX').onChange(function(e){
+cameraGui.add(cameraOption, 'cameraX').onChange(function(e){
     camera.position.x = e;
     centerCamera();
 });
-gui.add(cameraOption, 'cameraY').onChange(function(e){
+cameraGui.add(cameraOption, 'cameraY').onChange(function(e){
     camera.position.y = e;
     centerCamera();
 });
-gui.add(cameraOption, 'cameraZ').onChange(function(e){
+cameraGui.add(cameraOption, 'cameraZ').onChange(function(e){
     camera.position.z = e;
     centerCamera();
 });
-gui.add(cameraOption, 'cameraLookX').onChange(function(e){
+cameraGui.add(cameraOption, 'cameraLookX').onChange(function(e){
     camera.lookAt.x = e;
     centerCamera();
 });
-gui.add(cameraOption, 'cameraLookY').onChange(function(e){
+cameraGui.add(cameraOption, 'cameraLookY').onChange(function(e){
     camera.lookAt.y = e;
     centerCamera();
 });
-gui.add(cameraOption, 'CameraLookZ').onChange(function(e){
+cameraGui.add(cameraOption, 'CameraLookZ').onChange(function(e){
     camera.lookAt.z = e;
     centerCamera();
 });
