@@ -10,7 +10,16 @@ const cameraOption = {
     cameraZ: 4.5,
     cameraLookX:0.1,
     cameraLookY:-1.0,
-    CameraLookZ:0.1,
+    cameraLookZ:0.1,
+}
+
+const camProp = {
+    cameraX: 0.1,
+    cameraY: 8.0,
+    cameraZ: 4.5,
+    cameraLookX:0.1,
+    cameraLookY:-1.0,
+    cameraLookZ:0.1,
 }
 
 const cameraCut1 = {
@@ -19,10 +28,10 @@ const cameraCut1 = {
     cameraZ: 4.5,
     cameraLookX:0.1,
     cameraLookY:-1.0,
-    CameraLookZ:0.1,
+    cameraLookZ:0.1,
     cameraRotationX:-1.1071487177940904,
     cameraRotationY:0,
-    CameraRotationZ:0,
+    cameraRotationZ:0,
 }
 
 const cameraCut2 = {
@@ -31,19 +40,22 @@ const cameraCut2 = {
     cameraZ: 4.3,
     cameraLookX:0.57,
     cameraLookY:0.6,
-    CameraLookZ:2.5,
+    cameraLookZ:2.5,
     cameraRotationX:-0.32175055439664224,
     cameraRotationY:0,
-    CameraRotationZ:0,
+    cameraRotationZ:0,
 }
 
 const cameraCut3 = {
-    cameraX: 2.3,
-    cameraY: 2.5,
-    cameraZ: 3.8,
+    cameraX: 5.21,
+    cameraY: 1.4,
+    cameraZ: 0.3,
+    cameraLookX:1.76,
+    cameraLookY:0.5,
+    cameraLookZ:0.53,
     cameraRotationX:-1.1136189251769462,
     cameraRotationY:0.49956010330636486,
-    CameraRotationZ:0.7721146406652785,
+    cameraRotationZ:0.7721146406652785,
 }
 
 const cameraCut4 = {
@@ -52,7 +64,7 @@ const cameraCut4 = {
     cameraZ: 1.8,
     cameraRotationX:-1.2610670403004278,
     cameraRotationY:0.5507373140124942,
-    CameraRotationZ:1.0219339106944585,
+    cameraRotationZ:1.0219339106944585,
 }
 
 const cameraCut5 = {
@@ -61,7 +73,7 @@ const cameraCut5 = {
     cameraZ: -3.7,
     cameraRotationX:-2.3075552143175866,
     cameraRotationY:0.4822415270203947,
-    CameraRotationZ:2.669004141505082,
+    cameraRotationZ:2.669004141505082,
 }
 
 const cameraCut6 = {
@@ -70,7 +82,7 @@ const cameraCut6 = {
     cameraZ: -3.782608039318661,
     cameraRotationX: -2.1428560416882307,
     cameraRotationY: -0.07700965383297187,
-    CameraRotationZ: -3.022671819741038,
+    cameraRotationZ: -3.022671819741038,
 }
 
 // create scene
@@ -82,7 +94,7 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 camera.position.x = cameraOption.cameraX
 camera.position.y = cameraOption.cameraY
 camera.position.z = cameraOption.cameraZ
-camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.CameraLookZ);
+camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.cameraLookZ);
 
 // render scene
 const renderer = new THREE.WebGLRenderer({antialias:true});
@@ -132,7 +144,7 @@ const animate = () => {
 
 // add dat gui
 const centerCamera = () =>{
-    camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.CameraLookZ);
+    camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.cameraLookZ);
 }
 const gui = new dat.GUI();
 gui.addColor(options, 'dirLight').onChange(function(e){
@@ -163,7 +175,7 @@ gui.add(cameraOption, 'cameraLookY').onChange(function(e){
     camera.lookAt.y = e;
     centerCamera();
 });
-gui.add(cameraOption, 'CameraLookZ').onChange(function(e){
+gui.add(cameraOption, 'cameraLookZ').onChange(function(e){
     camera.lookAt.z = e;
     centerCamera();
 });
@@ -189,47 +201,40 @@ window.addEventListener('mousedown', () => {
 const cameras = [
     cameraCut1,
     cameraCut2,
-    // cameraCut3,
+    cameraCut3,
     // cameraCut4,
     // cameraCut5,
     // cameraCut6,
 ]
 
-index = 0;
+index = 1;
+
+function getProgress () {
+    var currProgress = this.progress();
+    return currProgress
+}
 
 const next = () => {
-    const angle = cameras[index];
+    const cameraSet = cameras[index];
     index+=1;
     if(index>=cameras.length){
         index = 0
     }
-    gsap.to(camera.position, {
-        x:angle.cameraX,
-        y:angle.cameraY,
-        z:angle.cameraZ,
-        duration:1.5,
-        onUpdate: () =>{
-            // camera.lookAt(angle.cameraLookX,angle.cameraLookY,angle.CameraLookZ);
+    TweenLite.to(camProp, {
+        cameraX: cameraSet.cameraX,
+        cameraY: cameraSet.cameraY,
+        cameraZ: cameraSet.cameraZ,
+        cameraLookX: cameraSet.cameraLookX,
+        cameraLookY: cameraSet.cameraLookY,
+        cameraLookZ: cameraSet.cameraLookZ,
+        duration:1,
+        onUpdate: () => {
+            camera.position.x = camProp.cameraX
+            camera.position.y = camProp.cameraY
+            camera.position.z = camProp.cameraZ
+            camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
         }
     });
-
-    if(false){
-        gsap.to(camera.rotation, {
-            x:angle.cameraRotationX,
-            y:angle.cameraRotationY,
-            z:angle.CameraRotationZ,
-            duration:1.5,
-        });
-    }
-
-    if(true){
-        gsap.to(orbit.target, {
-            x:angle.cameraLookX,
-            y:angle.cameraLookY,
-            z:angle.CameraLookZ,
-            duration:1.5,
-        });
-    }
 }
 
 // call animate to display
