@@ -5,12 +5,12 @@ const options = {
 }
 
 const cameraOption = {
-    cameraX: 0.1,
-    cameraY: 8.0,
+    cameraX: 1.0,
+    cameraY: 8.1,
     cameraZ: 4.5,
-    cameraLookX:0.1,
+    cameraLookX:1.0,
     cameraLookY:-1.0,
-    cameraLookZ:0.1,
+    cameraLookZ:1.0,
 }
 
 const camProp = {
@@ -35,45 +35,72 @@ const cameraCut2 = {
     cameraX: 1.7,
     cameraY: 2.5,
     cameraZ: 4.3,
-    cameraLookX:0.57,
+    cameraLookX:0.6,
     cameraLookY:0.6,
     cameraLookZ:2.5,
 }
 
 const cameraCut3 = {
-    cameraX: 2.64,
+    cameraX: 5.2,
+    cameraY: 1.4,
+    cameraZ: 0.3,
+    cameraLookX:1.8,
+    cameraLookY:0.5,
+    cameraLookZ:0.5,
+}
+
+const cameraCut4 = {
+    cameraX: 2.6,
     cameraY: 1.8,
     cameraZ: -3.8,
-    cameraLookX:2.12,
+    cameraLookX:2.1,
     cameraLookY:0.6,
     cameraLookZ:-2.2,
 }
 
-const cameraCut4 = {
-    cameraX: 3.9,
-    cameraY: 3.0,
-    cameraZ: 1.8,
-    cameraLookX:0.57,
-    cameraLookY:0.6,
-    cameraLookZ:2.5,
-}
-
 const cameraCut5 = {
-    cameraX: 4.5,
-    cameraY: 3.1,
-    cameraZ: -3.7,
-    cameraLookX:0.57,
-    cameraLookY:0.6,
-    cameraLookZ:2.5,
+    cameraX: -1.8,
+    cameraY: 1.5,
+    cameraZ: -4.4,
+    cameraLookX:-0.2,
+    cameraLookY:0.1,
+    cameraLookZ:-1.3,
 }
 
 const cameraCut6 = {
-    cameraX: -0.8068846865833008,
-    cameraY: 2.6521796457250355,
-    cameraZ: -3.782608039318661,
-    cameraLookX:0.57,
-    cameraLookY:0.6,
-    cameraLookZ:2.5,
+    cameraX: -4.6,
+    cameraY: 1.7,
+    cameraZ: -0.8,
+    cameraLookX:-2.1,
+    cameraLookY:0.4,
+    cameraLookZ:-0.2,
+}
+
+const cameraCut7 = {
+    cameraX: -2.6,
+    cameraY: 1.9,
+    cameraZ: 3.4,
+    cameraLookX:-1.7,
+    cameraLookY:0.4,
+    cameraLookZ:2.1,
+}
+
+const cameraCut8 = {
+    cameraX: 0,
+    cameraY: 5,
+    cameraZ: 8,
+    cameraLookX:0,
+    cameraLookY:1,
+    cameraLookZ:0,
+}
+
+const cameraCut9 = {
+    cameraX: 0,
+    cameraY: 1.8,
+    cameraZ: 1.2,
+    cameraLookX:0,
+    cameraLookY:1.4,
+    cameraLookZ:0,
 }
 
 // create scene
@@ -195,18 +222,21 @@ const cameras = [
     cameraCut1,
     cameraCut2,
     cameraCut3,
-    // cameraCut4,
-    // cameraCut5,
-    // cameraCut6,
+    cameraCut4,
+    cameraCut5,
+    cameraCut6,
+    cameraCut7,
+    cameraCut8,
+    cameraCut9,
 ]
 
+// keyframing
+camera.position.x = camProp.cameraX
+camera.position.y = camProp.cameraY
+camera.position.z = camProp.cameraZ
+camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
+
 index = 1;
-
-function getProgress () {
-    var currProgress = this.progress();
-    return currProgress
-}
-
 const next = () => {
     const cameraSet = cameras[index];
     index+=1;
@@ -220,7 +250,8 @@ const next = () => {
         cameraLookX: cameraSet.cameraLookX,
         cameraLookY: cameraSet.cameraLookY,
         cameraLookZ: cameraSet.cameraLookZ,
-        duration:1,
+        duration:4,
+        ease: "power1.inOut",
         onUpdate: () => {
             camera.position.x = camProp.cameraX
             camera.position.y = camProp.cameraY
