@@ -24,13 +24,73 @@
         width: 100%;
         height: 100%;
       }
+      .card-shrink{
+        height: 50vh; 
+        max-width: 768px;
+        transition: height ease .5s;
+      }
+      .card-full{
+        height: calc(100vh - 32px); 
+        max-width: 768px;
+      }
     </style>
   </head>
   <body>
     <div id="threeContainer"></div>
-    <div id="container" class="container-fluid p-3 d-nonee">
-      <div class="bg-white p-4 rounded-5 shadow-lg overflow-y-auto mx-auto" style="height: 50vh; max-width: 400px;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nisi inventore incidunt optio officia aut repudiandae, at saepe magni a accusantium aperiam quo, recusandae totam quam rem assumenda, hic ipsa repellat cumque! Totam voluptatum dolores minima quas commodi quaerat mollitia officiis obcaecati harum deserunt velit, molestiae assumenda sint. Distinctio, veniam!
+    <div id="container" class="container-fluid p-3">
+      <div id="containerCard" class="bg-white p-4 rounded-5 shadow-lg overflow-y-auto mx-auto card-shrink card-full">
+        
+      </div>
+      <div id="placeHolderContainer" class="d-none">
+        <div id="screenOpener" style="min-height: 100%;" class="text-center d-flex flex-column justify-content-between align-items-center gap-2">
+          <div></div>
+          <div>
+            <div class="fs-4">Undangan Pernikahan</div>
+            <div class="display-2">FF</div>
+            <div class="display-3">Fulan & Fulanah</div>
+            <div class="">Ahad, 21 April 2024</div>
+          </div>
+          <div class="border border-2 px-4 py-2 rounded-4">
+            <div class="">Kepada Bapak/Ibu/Saudara/i</div>
+            <div class="fs-3 py-2">YukDatang Team</div>
+            <div style="font-size: 10pt;">*) mohon maaf apabila ada kesalahan<br>penulisan nama atau gelar</div>
+          </div>
+          <div class="btn btn-primary" onclick="openInvitation()">Buka Undangan</div>
+        </div>
+        <div id="screenHome" class="d-flex justify-content-center align-items-center w-100 h-100">
+          <img style="max-width: 300px; max-height: 300px; width: 100%; height: 100%;" class="img-fluid" src="https://placehold.co/400" alt="placehold">
+        </div>
+        <div id="screenWelcome" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-5">Bismillahirrahmanirrahim</div>
+          <div class="fs-4">Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami</div>
+        </div>
+        <div id="screenName" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (1)</div>
+        </div>
+        <div id="screenEvent" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (2)</div>
+        </div>
+        <div id="screenLocation" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (3)</div>
+        </div>
+        <div id="screenGalery" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (4)</div>
+        </div>
+        <div id="screenStory" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (5)</div>
+        </div>
+        <div id="screenQuote" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (6)</div>
+        </div>
+        <div id="screenWish" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (7)</div>
+        </div>
+        <div id="screenGift" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (8)</div>
+        </div>
+        <div id="screencloser" class="d-flex flex-column justify-content-center h-100">
+          <div class="fs-4">Ya begitulah seterusnya (9)</div>
+        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

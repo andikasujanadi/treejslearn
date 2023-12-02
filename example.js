@@ -3,11 +3,11 @@ debugOrbit = false;
 debugControlGui = false;
     debugCameraGui = true;
     debugLightGui = false;
-debugMobileFrame = true;
+debugMobileFrame = false;
 
 // mobile frame
 if(debugMobileFrame){
-    container.insertAdjacentHTML('beforeend',`<div class="position-absolute top-0 start-50 translate-middle-x border border-2 border-danger" style="height:100vh; width:50vh"></div>`)
+    container.insertAdjacentHTML('beforeend',`<div class="pe-none position-absolute top-0 start-50 translate-middle-x border border-2 border-danger" style="height:100vh; width:50vh"></div>`)
 }
 
 // template data
@@ -34,7 +34,7 @@ let camProp = {
     cameraLookZ:0.1,
 }
 
-const cameraCut1 = {
+const cameraCutHigh1 = {
     cameraX: 0,
     cameraY: 11,
     cameraZ: 9,
@@ -43,7 +43,7 @@ const cameraCut1 = {
     cameraLookZ:0,
 }
 
-const cameraCut2 = {
+const cameraCut1 = {
     cameraX: 2.7,
     cameraY: 2.5,
     cameraZ: 5.5,
@@ -52,7 +52,7 @@ const cameraCut2 = {
     cameraLookZ:1.8,
 }
 
-const cameraCut3 = {
+const cameraCut2 = {
     cameraX: 6.1,
     cameraY: 1.8,
     cameraZ: 1.1,
@@ -61,7 +61,7 @@ const cameraCut3 = {
     cameraLookZ:0.2,
 }
 
-const cameraCut4 = {
+const cameraCut3 = {
     cameraX: 2.9,
     cameraY: 2.1,
     cameraZ: -5.5,
@@ -70,7 +70,7 @@ const cameraCut4 = {
     cameraLookZ:0.1,
 }
 
-const cameraCut5 = {
+const cameraCut4 = {
     cameraX: -3,
     cameraY: 2.4,
     cameraZ: -5.2,
@@ -79,7 +79,7 @@ const cameraCut5 = {
     cameraLookZ:1.3,
 }
 
-const cameraCut6 = {
+const cameraCut5 = {
     cameraX: -5.9,
     cameraY: 2.8,
     cameraZ: 0.3,
@@ -88,7 +88,7 @@ const cameraCut6 = {
     cameraLookZ:-0.3,
 }
 
-const cameraCut7 = {
+const cameraCut6 = {
     cameraX: -3.6,
     cameraY: 2.4,
     cameraZ: 5.8,
@@ -97,7 +97,7 @@ const cameraCut7 = {
     cameraLookZ:-0.3,
 }
 
-const cameraCut8 = {
+const cameraCutHigh2 = {
     cameraX: 0,
     cameraY: 15.3,
     cameraZ: 7.7,
@@ -106,7 +106,7 @@ const cameraCut8 = {
     cameraLookZ:0,
 }
 
-const cameraCut9 = {
+const cameraCutRing = {
     cameraX: 0,
     cameraY: 1.6,
     cameraZ: 1.5,
@@ -163,9 +163,7 @@ loader.load( 'ring.glb', function (gltf) {
         }
     });
 	scene.add(suzanne);
-}, undefined, function ( error ) {
-	console.error( error );
-});
+}, undefined, function ( error ) {});
 
 // animate object
 const animate = () => {
@@ -235,35 +233,36 @@ window.addEventListener('mousedown', () => {
 });
 
 const cameras = [
+    cameraCutHigh2,
+    cameraCutHigh1,
     cameraCut1,
     cameraCut2,
     cameraCut3,
     cameraCut4,
     cameraCut5,
     cameraCut6,
-    cameraCut7,
-    cameraCut8,
-    cameraCut9,
+    cameraCut1,
+    cameraCut2,
+    cameraCutHigh2,
+    cameraCutRing,
 ]
 
 // keyframing
-camProp.cameraX = cameraCut1.cameraX;
-camProp.cameraY = cameraCut1.cameraY;
-camProp.cameraZ = cameraCut1.cameraZ;
+camProp.cameraX = cameraCutHigh1.cameraX;
+camProp.cameraY = cameraCutHigh1.cameraY;
+camProp.cameraZ = cameraCutHigh1.cameraZ;
 
-camProp.cameraLookX = cameraCut1.cameraLookX;
-camProp.cameraLookY = cameraCut1.cameraLookY;
-camProp.cameraLookZ = cameraCut1.cameraLookZ;
+camProp.cameraLookX = cameraCutHigh1.cameraLookX;
+camProp.cameraLookY = cameraCutHigh1.cameraLookY;
+camProp.cameraLookZ = cameraCutHigh1.cameraLookZ;
 
 camera.position.x = camProp.cameraX;
 camera.position.y = camProp.cameraY;
 camera.position.z = camProp.cameraZ;
 camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
 
-index = 1;
-const next = () => {
+const manuverTo = (index) => {
     cameraSet = cameras[index];
-    console.log(index)
     TweenLite.to(camProp, {
         cameraX: cameraSet.cameraX,
         cameraY: cameraSet.cameraY,
@@ -271,7 +270,7 @@ const next = () => {
         cameraLookX: cameraSet.cameraLookX,
         cameraLookY: cameraSet.cameraLookY,
         cameraLookZ: cameraSet.cameraLookZ,
-        duration:1,
+        duration:2,
         ease: "power1.inOut",
         onUpdate: () => {
             camera.position.x = camProp.cameraX
@@ -280,10 +279,6 @@ const next = () => {
             camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
         }
     });
-    index+=1;
-    if(index>=cameras.length){
-        index = 0
-    }
 }
 
 // call animate to display
@@ -291,7 +286,125 @@ animate();
 
 // data things
 // can't fetch yet bruh
-fetch('./local/data.json')
+fetch('./data.json')
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.log(error));
+
+
+screens = [
+    screenOpener,
+    screenHome,
+    screenWelcome,
+    screenName,
+    screenEvent,
+    screenLocation,
+    screenGalery,
+    screenStory,
+    screenQuote,
+    screenWish,
+    screenGift,
+    screencloser,
+]
+
+// navigation
+const goTo = (index) => {
+    containerCard.innerHTML = screens[index].outerHTML
+    manuverTo(index)
+}
+
+
+const openInvitation = () => {
+    containerCard.classList.remove('card-full');
+    index = 1;
+    goTo(1);
+}
+goTo(0);
+
+let index = 0;
+let touchstartY = 0
+let touchendY = 0
+let finishTouch = true;
+
+const goToRelative = (newIndex) => {
+    oldIndex = index
+    index += newIndex;
+    checkIndex();
+    if(index!=oldIndex){
+        goTo(index);
+    }
+}
+
+const checkIndex = () => {
+    if(index<1){
+        index = 1;
+    }
+    else if(index>=screens.length){
+        index=screens.length-1
+    }
+}
+
+// swipe control
+function checkDirection() {
+    const treshold = 100;
+    if (touchendY+treshold < touchstartY){
+        // swipe up
+        goToRelative(1);
+        finishTouch=false;
+    }
+    if (touchendY-treshold > touchstartY){
+        // swipe down
+        goToRelative(-1);
+        finishTouch=false;
+    }
+}
+
+document.addEventListener('touchstart', e => {
+  touchstartY = e.changedTouches[0].screenY;
+})
+
+document.addEventListener('touchmove', e => {
+  touchendY = e.changedTouches[0].screenY;
+  if(finishTouch && index!=0){
+      checkDirection()
+  }
+})
+
+document.addEventListener('touchend', e => {
+    finishTouch = true;
+})
+
+// scroll control
+let scrolltemp = 0;
+let firstTriggerScroll = true;
+document.addEventListener("wheel", function (e) {
+    const stunt = 500;
+    const treshold = 100;
+    if(firstTriggerScroll){
+        firstTriggerScroll = false;
+        setTimeout(() => {
+            firstTriggerScroll = true;
+            scrolltemp = 0;
+        }, stunt);
+    }
+    if(finishTouch && index!=0){
+        var scrollVal = parseInt(e.deltaY);
+        scrolltemp+=scrollVal;
+        if(scrolltemp>treshold){
+            scrolltemp = 0;
+            goToRelative(1);
+            finishTouch = false;
+            setTimeout(() => {
+                finishTouch = true;
+            }, stunt);
+        }
+        if(scrolltemp<-treshold){
+            scrolltemp = 0;
+            goToRelative(-1);
+            finishTouch = false;
+            setTimeout(() => {
+                finishTouch = true;
+            }, stunt);
+        }
+    }
+});
