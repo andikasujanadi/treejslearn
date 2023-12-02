@@ -1,0 +1,201 @@
+{
+    "title": "Walimatul Ursy Fulan dan Fulanah",
+    "host": "Fulan & Fulanah",
+    "id": 1,
+    "logo": "https://avatars.githubusercontent.com/u/100250227?s=200&v=4",
+    "date": "2024-04-21T08:30:00",
+    "receiver": "YukDatang Team",
+    "category": "Pernikahan",
+    "bgm": "https://res.cloudinary.com/tpq-mis/video/upload/v1700642827/cardinal-37075_vhdjj7.mp3",
+    "env": "staging",
+    "watermark": {
+        "enable": true,
+        "brandName": "YukDatang",
+        "brandLogo": "https://avatars.githubusercontent.com/u/100250227?s=200&v=4",
+        "brandUrl": "https://yukdatang.com"
+    },
+    "opener": true,
+    "content": {
+        "opener": {
+            "backgroundUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1700529092/yukdatang-main/images/crop-man-putting-ring-girlfriend-finger_pk4z1w.jpg"
+        },
+        "home": {
+            "backgroundUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1700529092/yukdatang-main/images/crop-man-putting-ring-girlfriend-finger_pk4z1w.jpg"
+        },
+        "welcome": {
+            "headingText": "Bismillahirrahmanirrahim",
+            "welcomeText": "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami",
+            "additionalImageUrl": "https://cdnwpseller.gramedia.net/wp-content/uploads/2022/07/26120150/3dd35f73227283f5d49cd8c7bd50a3600cde67223acf319809b726eb17e356f9.jpg"
+        },
+        "groom": {
+            "fullName": "Fulan bin Abu Fulan",
+            "father": "Abu Fulan",
+            "mother": "Ummu Fulan",
+            "imageUrl": "https://i.pinimg.com/1200x/ab/7e/c5/ab7ec5b1df33cbdbee30339e27288b99.jpg",
+            "account": {
+                "instagram": "fulan123",
+                "facebook": "fulan123",
+                "twitter": "fulan123"
+            }
+        },
+        "bride": {
+            "fullName": "Fulanah bintu Abu Fulanah",
+            "father": "Abu Fulanah",
+            "mother": "Ummu Fulanah",
+            "imageUrl": "https://i.pinimg.com/1200x/38/67/72/3867724cd0d3ff654cf5440e261a8a54.jpg",
+            "account": {
+                "instagram": "fulanah123",
+                "facebook": "fulanah123",
+                "twitter": "fulanah123"
+            }
+        },
+        "event": [
+            {
+                "title": "Ijab Kabul",
+                "date": "2024-04-21T08:30:00",
+                "location": "Gedung Serbaguna Masjid Hasanuddin Madjedi",
+                "address": "Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara",
+                "coordinate": {
+                    "lat": "-3.320105",
+                    "long": "114.595476"
+                }
+            },
+            {
+                "title": "Walimah",
+                "date": "2024-04-21T09:30:00",
+                "location": "Gedung Serbaguna Masjid Hasanuddin Madjedi",
+                "address": "Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara"
+            }
+        ],
+        "location": {
+            "fromEvent": false,
+            "location": "Gedung Serbaguna Masjid Hasanuddin Madjedi",
+            "address": "Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara",
+            "coordinate": {
+                "lat": "-3.320105",
+                "long": "114.595476"
+            }
+        },
+        "gallery": [
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1700529268/yukdatang-main/images/wedding-rings-with-ornaments_vn7qet.jpg",
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1700529264/yukdatang-main/images/wedding-invitation-card_a74n8w.jpg",
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1697359853/yukdatang-main/images/wedding-rings-made-white-gold-lie-cloth-flower_soqu6n.jpg",
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1697359722/yukdatang-main/images/golden-wedding-rings-white-rose-from-wedding-bouquet_u9c9yv.jpg",
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1697351503/yukdatang-main/images/top-view-wedding-rings-with-flowers-table_1_llwuts.jpg",
+            "https://res.cloudinary.com/tpq-mis/image/upload/v1697351500/yukdatang-main/images/two-gold-wedding-ring-white-background_n5e5mb.jpg"
+        ],
+        "story": [
+            {
+                "title": "Pertemuan Pertama",
+                "date": "2020-04-21T09:30:00",
+                "content": "Pada tahun 2020 kami pertama kalI berkomunikasi mengenai pekerjaan. Dalam komunikasi tersebut kami hanya sebatas rekan kerja.",
+                "imageUrl": "https://officesnapshots.com/wp-content/uploads/2023/07/marriott-offices-shanghai-5-700x467-compact.jpg"
+            },
+            {
+                "title": "Khitbah",
+                "content": "Fulan menemui orang tua Fulanah untuk memingangnya"
+            },
+            {
+                "title": "Menikah",
+                "content": "Lamaran diterima, menuju halal",
+                "imageUrl": "https://mmc.tirto.id/image/otf/500x0/2021/02/04/istock-1213696475_ratio-16x9.jpg"
+            }
+        ],
+        "quote": {
+            "author": "Q.S. Ar-Ruum: 21",
+            "content": "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+        },
+        "etiquette": [
+            {
+                "title": "Datang tanpa menunda-nunda",
+                "description": "“Barangsiapa yang diundang, hendaklah ia memenuhinya.” (HR. Abu Dawud dan Ahmad)",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833547/coming-soon_pgpixo.gif"
+            },
+            {
+                "title": "Tidak membedakan undangan dari orang kaya atau miskin",
+                "description": "“Mari makan siang bersama kami, wahai cucu Rasulullah Shallallahu ‘alaihi wa sallam.” Al-Hasan bin ‘Ali berkata: “Ya boleh, karena sesungguhnya Allah tidak menyukai orang-orang yang sombong.”",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833546/money-bag_lhzmxo.gif"
+            },
+            {
+                "title": "Membaca bismilllah sebelum makan",
+                "description": "“Wahai nak, sebutlah nama Allah, makanlah dengan tangan kananmu, dan makanlah yang terdekat denganmu dulu.” (HR. Al-Bukhari)",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833548/praying_iyr6fj.gif"
+            },
+            {
+                "title": "Makan dari pinggirnya",
+                "description": "“Keberkahan turun di bagian tengah makanan. Maka mulailah untuk makan dari pinggirnya, jangan makan dari tengahnya.” (HR. Tirmidzi)",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833544/nutrition-plan_lcabo0.gif"
+            },
+            {
+                "title": "Tidak membawa orang yang tidak diundang",
+                "description": "“Engkau (Abu Syu’aib) mengundang kami berlima, sedangkan orang ini mengikuti kami. Jika engkau mau, engkau bisa mengizinkannya, dan jika engkau mau, engkau boleh tidak mengizinkannya.” (HR. Bukhari)",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833544/exclude_f6gcrg.gif"
+            },
+            {
+                "title": "Mendoakan pemilik walimah",
+                "description": "“Ya Allah, ampunilah mereka, sayangilah mereka dan berkahilah mereka pada apa-apa yang Engkau karuniakan kepada mereka” (HR. Ahmad)",
+                "imageUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1696833550/handshake_mrilce.gif"
+            }
+        ],
+        "wish": [
+            {
+                "name": "Evil Fulan",
+                "willCome": "maybe",
+                "content": "Aku harap kalian segera punya anak perempuan"
+            },
+            {
+                "name": "Evil Fulanah",
+                "willCome": "no",
+                "content": "Aku harap kalian segera punya anak laki-laki"
+            },
+            {
+                "name": "Good Fulan",
+                "willCome": "yes",
+                "content": "Aku harap kalian segera punya anak laki-laki dan perempuan"
+            }
+        ],
+        "gift": {
+            "address": "Jl. Padat Karya Komp. Perdana Mandiri",
+            "accounts": [
+                {
+                    "name": "Fulan bin Fulan",
+                    "bank": "bca",
+                    "account": "82123123123"
+                },
+                {
+                    "name": "Fulanah binti Fulan",
+                    "bank": "bri",
+                    "account": "82123123123"
+                }
+            ],
+            "quote": {
+                "author": "HR. Malik",
+                "content": "Saling bersalamanlah (berjabat tanganlah) kalian, maka akan hilanglah kedengkian (dendam). Saling memberi hadiahlah kalian, maka kalian akan saling mencintai dan akan hilang kebencian."
+            }
+        },
+        "live": {
+            "instagram": "",
+            "youtube": "https://www.youtube.com/watch?v=-p74DE68G78",
+            "facebook": "",
+            "other": ""
+        },
+        "filter": [
+            "https://www.instagram.com/ar/503789147012089"
+        ],
+        "invites": [
+            "Fulan Alpha",
+            "Fulanah Beta",
+            "Fulan Charlie",
+            "Fulanah Delta"
+        ],
+        "closer": {
+            "backgroundUrl": "https://res.cloudinary.com/tpq-mis/image/upload/v1700529092/yukdatang-main/images/crop-man-putting-ring-girlfriend-finger_pk4z1w.jpg",
+            "closingText": "Merupakan suatu kebahagiaan bagi kami atas kehadiran Bapak/Ibu untuk memberikan doa restu",
+            "greetingText": "Hormat kami yang mengundang"
+        }
+    },
+    "contentOrder": [
+        "home", "welcome", "groom", "bride", "event",
+        "location", "story", "gallery", "quote", "etiquette"
+    ]
+}

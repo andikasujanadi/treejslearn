@@ -1,6 +1,6 @@
 // params
 debugOrbit = false;
-debugControlGui = true;
+debugControlGui = false;
     debugCameraGui = true;
     debugLightGui = false;
 debugMobileFrame = true;
@@ -288,3 +288,10 @@ const next = () => {
 
 // call animate to display
 animate();
+
+// data things
+// can't fetch yet bruh
+fetch('./local/data.json')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
