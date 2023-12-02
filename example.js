@@ -1,8 +1,8 @@
 // params
 debugOrbit = false;
 debugControlGui = true;
- debugCameraGui = true;
- debugLightGui = false;
+    debugCameraGui = true;
+    debugLightGui = false;
 debugMobileFrame = true;
 
 // mobile frame
