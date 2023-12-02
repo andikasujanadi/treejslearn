@@ -1,3 +1,15 @@
+// params
+debugOrbit = false;
+debugControlGui = true;
+ debugCameraGui = true;
+ debugLightGui = false;
+debugMobileFrame = true;
+
+// mobile frame
+if(debugMobileFrame){
+    container.insertAdjacentHTML('beforeend',`<div class="position-absolute top-0 start-50 translate-middle-x border border-2 border-danger" style="height:100vh; width:50vh"></div>`)
+}
+
 // template data
 const options = {
     dirLight: '#FFFFFF',
@@ -13,7 +25,7 @@ const cameraOption = {
     cameraLookZ:1.0,
 }
 
-const camProp = {
+let camProp = {
     cameraX: 0.1,
     cameraY: 8.0,
     cameraZ: 4.5,
@@ -24,82 +36,82 @@ const camProp = {
 
 const cameraCut1 = {
     cameraX: 0,
-    cameraY: 8,
-    cameraZ: 4.5,
-    cameraLookX:0.1,
-    cameraLookY:-1.0,
-    cameraLookZ:0.1,
+    cameraY: 11,
+    cameraZ: 9,
+    cameraLookX:0,
+    cameraLookY:3.8,
+    cameraLookZ:0,
 }
 
 const cameraCut2 = {
-    cameraX: 1.7,
+    cameraX: 2.7,
     cameraY: 2.5,
-    cameraZ: 4.3,
-    cameraLookX:0.6,
-    cameraLookY:0.6,
-    cameraLookZ:2.5,
+    cameraZ: 5.5,
+    cameraLookX:0.7,
+    cameraLookY:1,
+    cameraLookZ:1.8,
 }
 
 const cameraCut3 = {
-    cameraX: 5.2,
-    cameraY: 1.4,
-    cameraZ: 0.3,
-    cameraLookX:1.8,
-    cameraLookY:0.5,
-    cameraLookZ:0.5,
+    cameraX: 6.1,
+    cameraY: 1.8,
+    cameraZ: 1.1,
+    cameraLookX:2.9,
+    cameraLookY:1.3,
+    cameraLookZ:0.2,
 }
 
 const cameraCut4 = {
-    cameraX: 2.6,
-    cameraY: 1.8,
-    cameraZ: -3.8,
-    cameraLookX:2.1,
-    cameraLookY:0.6,
-    cameraLookZ:-2.2,
+    cameraX: 2.9,
+    cameraY: 2.1,
+    cameraZ: -5.5,
+    cameraLookX:0.4,
+    cameraLookY:0.7,
+    cameraLookZ:0.1,
 }
 
 const cameraCut5 = {
-    cameraX: -1.8,
-    cameraY: 1.5,
-    cameraZ: -4.4,
-    cameraLookX:-0.2,
-    cameraLookY:0.1,
-    cameraLookZ:-1.3,
+    cameraX: -3,
+    cameraY: 2.4,
+    cameraZ: -5.2,
+    cameraLookX:0.7,
+    cameraLookY:0.9,
+    cameraLookZ:1.3,
 }
 
 const cameraCut6 = {
-    cameraX: -4.6,
-    cameraY: 1.7,
-    cameraZ: -0.8,
-    cameraLookX:-2.1,
-    cameraLookY:0.4,
-    cameraLookZ:-0.2,
+    cameraX: -5.9,
+    cameraY: 2.8,
+    cameraZ: 0.3,
+    cameraLookX:1.3,
+    cameraLookY:-0.2,
+    cameraLookZ:-0.3,
 }
 
 const cameraCut7 = {
-    cameraX: -2.6,
-    cameraY: 1.9,
-    cameraZ: 3.4,
-    cameraLookX:-1.7,
-    cameraLookY:0.4,
-    cameraLookZ:2.1,
+    cameraX: -3.6,
+    cameraY: 2.4,
+    cameraZ: 5.8,
+    cameraLookX:0.4,
+    cameraLookY:0.8,
+    cameraLookZ:-0.3,
 }
 
 const cameraCut8 = {
     cameraX: 0,
-    cameraY: 5,
-    cameraZ: 8,
+    cameraY: 15.3,
+    cameraZ: 7.7,
     cameraLookX:0,
-    cameraLookY:1,
+    cameraLookY:6,
     cameraLookZ:0,
 }
 
 const cameraCut9 = {
     cameraX: 0,
-    cameraY: 1.8,
-    cameraZ: 1.2,
+    cameraY: 1.6,
+    cameraZ: 1.5,
     cameraLookX:0,
-    cameraLookY:1.4,
+    cameraLookY:1.6,
     cameraLookZ:0,
 }
 
@@ -122,8 +134,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 threeContainer.appendChild(renderer.domElement);
 
 // create camera orbit
-const orbit = new THREE.OrbitControls(camera, renderer.domElement)
-orbit.update;
+if(debugOrbit){
+    const orbit = new THREE.OrbitControls(camera, renderer.domElement)
+    orbit.update;
+}
 
 // add light
 const ambientLight = new THREE.AmbientLight(0xA5A5A5);
@@ -161,44 +175,46 @@ const animate = () => {
 }
 
 // add dat gui
-const centerCamera = () =>{
-    camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.cameraLookZ);
+if(debugControlGui){
+    const centerCamera = () =>{
+        camera.lookAt(cameraOption.cameraLookX,cameraOption.cameraLookY,cameraOption.cameraLookZ);
+    }
+    const cameraGui = new dat.GUI({autoPlace: debugCameraGui});
+    const lightGui = new dat.GUI({autoPlace: debugLightGui});
+    try {document.querySelector('.dg.ac').style.top="200px";} catch (error) {}
+    lightGui.addColor(options, 'dirLight').onChange(function(e){
+        directionalLight.color.set(e);
+        centerCamera();
+    });
+    lightGui.addColor(options, 'ambLight').onChange(function(e){
+        ambientLight.color.set(e);
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraX').onChange(function(e){
+        camera.position.x = e;
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraY').onChange(function(e){
+        camera.position.y = e;
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraZ').onChange(function(e){
+        camera.position.z = e;
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraLookX').onChange(function(e){
+        camera.lookAt.x = e;
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraLookY').onChange(function(e){
+        camera.lookAt.y = e;
+        centerCamera();
+    });
+    cameraGui.add(cameraOption, 'cameraLookZ').onChange(function(e){
+        camera.lookAt.z = e;
+        centerCamera();
+    });
 }
-const cameraGui = new dat.GUI({autoPlace: true});
-const lightGui = new dat.GUI({autoPlace: false});
-document.querySelector('.dg.ac').style.top="200px";
-lightGui.addColor(options, 'dirLight').onChange(function(e){
-    directionalLight.color.set(e);
-    centerCamera();
-});
-lightGui.addColor(options, 'ambLight').onChange(function(e){
-    ambientLight.color.set(e);
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraX').onChange(function(e){
-    camera.position.x = e;
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraY').onChange(function(e){
-    camera.position.y = e;
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraZ').onChange(function(e){
-    camera.position.z = e;
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraLookX').onChange(function(e){
-    camera.lookAt.x = e;
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraLookY').onChange(function(e){
-    camera.lookAt.y = e;
-    centerCamera();
-});
-cameraGui.add(cameraOption, 'cameraLookZ').onChange(function(e){
-    camera.lookAt.z = e;
-    centerCamera();
-});
 
 // responsive canvas
 window.addEventListener('resize', () => {
@@ -208,10 +224,10 @@ window.addEventListener('resize', () => {
 });
 
 // scroll
-window.onscroll = function() {
-    var scrollPosition = window.scrollY;
-    suzanne.rotation.y=-scrollPosition/500;
-};
+// window.onscroll = function() {
+//     var scrollPosition = window.scrollY;
+//     suzanne.rotation.y=-scrollPosition/500;
+// };
 
 // GSAP testing
 window.addEventListener('mousedown', () => {
@@ -231,18 +247,23 @@ const cameras = [
 ]
 
 // keyframing
-camera.position.x = camProp.cameraX
-camera.position.y = camProp.cameraY
-camera.position.z = camProp.cameraZ
+camProp.cameraX = cameraCut1.cameraX;
+camProp.cameraY = cameraCut1.cameraY;
+camProp.cameraZ = cameraCut1.cameraZ;
+
+camProp.cameraLookX = cameraCut1.cameraLookX;
+camProp.cameraLookY = cameraCut1.cameraLookY;
+camProp.cameraLookZ = cameraCut1.cameraLookZ;
+
+camera.position.x = camProp.cameraX;
+camera.position.y = camProp.cameraY;
+camera.position.z = camProp.cameraZ;
 camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
 
 index = 1;
 const next = () => {
-    const cameraSet = cameras[index];
-    index+=1;
-    if(index>=cameras.length){
-        index = 0
-    }
+    cameraSet = cameras[index];
+    console.log(index)
     TweenLite.to(camProp, {
         cameraX: cameraSet.cameraX,
         cameraY: cameraSet.cameraY,
@@ -250,7 +271,7 @@ const next = () => {
         cameraLookX: cameraSet.cameraLookX,
         cameraLookY: cameraSet.cameraLookY,
         cameraLookZ: cameraSet.cameraLookZ,
-        duration:4,
+        duration:1,
         ease: "power1.inOut",
         onUpdate: () => {
             camera.position.x = camProp.cameraX
@@ -259,6 +280,10 @@ const next = () => {
             camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
         }
     });
+    index+=1;
+    if(index>=cameras.length){
+        index = 0
+    }
 }
 
 // call animate to display
