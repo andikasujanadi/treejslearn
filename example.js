@@ -221,30 +221,25 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// scroll
-// window.onscroll = function() {
-//     var scrollPosition = window.scrollY;
-//     suzanne.rotation.y=-scrollPosition/500;
-// };
+let index = 0;
 
-// GSAP testing
-window.addEventListener('mousedown', () => {
-    
-});
-
-const cameras = [
-    cameraCutHigh2,
-    cameraCutHigh1,
-    cameraCut1,
-    cameraCut2,
-    cameraCut3,
-    cameraCut4,
-    cameraCut5,
-    cameraCut6,
-    cameraCut1,
-    cameraCut2,
-    cameraCutHigh2,
-    cameraCutRing,
+// scene
+const scenes = [
+    [screenOpener,cameraCutHigh2],
+    [screenHome,cameraCutHigh1],
+    [screenWelcome,cameraCut1],
+    [screenGroom,cameraCut2],
+    [screenBride,cameraCut3],
+    [screenEvent,cameraCut4],
+    [screenEvent2,cameraCut4],
+    [screenEvent3,cameraCut4],
+    [screenLocation,cameraCut5],
+    [screenGalery,cameraCut6],
+    [screenStory,cameraCut1],
+    [screenQuote,cameraCut2],
+    [screenWish,cameraCut3],
+    [screenGift,cameraCutHigh2],
+    [screencloser,cameraCutRing],
 ]
 
 // keyframing
@@ -262,7 +257,7 @@ camera.position.z = camProp.cameraZ;
 camera.lookAt(camProp.cameraLookX,camProp.cameraLookY,camProp.cameraLookZ);
 
 const manuverTo = (index) => {
-    cameraSet = cameras[index];
+    cameraSet = scenes[index][1];
     TweenLite.to(camProp, {
         cameraX: cameraSet.cameraX,
         cameraY: cameraSet.cameraY,
@@ -291,28 +286,21 @@ fetch('./data.json')
   .then(data => console.log(data))
   .catch(error => console.log(error));
 
-
-screens = [
-    screenOpener,
-    screenHome,
-    screenWelcome,
-    screenName,
-    screenEvent,
-    screenLocation,
-    screenGalery,
-    screenStory,
-    screenQuote,
-    screenWish,
-    screenGift,
-    screencloser,
-]
-
 // navigation
 const goTo = (index) => {
-    containerCard.innerHTML = screens[index].outerHTML
+    try {
+        containerCard.querySelector('div').classList.remove('opacity-100');
+    } catch (error) {
+        
+    }
+    setTimeout(() => {
+        containerCard.innerHTML = scenes[index][0].outerHTML
+        setTimeout(() => {
+            containerCard.querySelector('div').classList.add('opacity-100');
+        }, 50);
+    }, 500);
     manuverTo(index)
 }
-
 
 const openInvitation = () => {
     containerCard.classList.remove('card-full');
@@ -321,7 +309,6 @@ const openInvitation = () => {
 }
 goTo(0);
 
-let index = 0;
 let touchstartY = 0
 let touchendY = 0
 let finishTouch = true;
@@ -339,8 +326,8 @@ const checkIndex = () => {
     if(index<1){
         index = 1;
     }
-    else if(index>=screens.length){
-        index=screens.length-1
+    else if(index>=scenes.length){
+        index=scenes.length-1
     }
 }
 
@@ -359,25 +346,25 @@ function checkDirection() {
     }
 }
 
-document.addEventListener('touchstart', e => {
+threeContainer.addEventListener('touchstart', e => {
   touchstartY = e.changedTouches[0].screenY;
 })
 
-document.addEventListener('touchmove', e => {
+threeContainer.addEventListener('touchmove', e => {
   touchendY = e.changedTouches[0].screenY;
   if(finishTouch && index!=0){
       checkDirection()
   }
 })
 
-document.addEventListener('touchend', e => {
+threeContainer.addEventListener('touchend', e => {
     finishTouch = true;
 })
 
 // scroll control
 let scrolltemp = 0;
 let firstTriggerScroll = true;
-document.addEventListener("wheel", function (e) {
+threeContainer.addEventListener("wheel", function (e) {
     const stunt = 500;
     const treshold = 100;
     if(firstTriggerScroll){
@@ -408,3 +395,6 @@ document.addEventListener("wheel", function (e) {
         }
     }
 });
+
+openInvitation();
+goTo(8);
