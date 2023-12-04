@@ -7,6 +7,11 @@
     <title>My first three.js app</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <style>
       body {
         margin: 0;
@@ -38,16 +43,28 @@
         margin-top: 1em;
         margin-bottom: 1em;
         opacity: 0;
+        font-family: 'Lora', serif;
       }
       img{
         object-fit: cover;
+      }
+
+      .mh-100{
+        min-height: 100%;
+      }
+
+      .card-header{
+        margin-top: 32px;
+      }
+      .comment-section{
+        font-family: 'Poppins', sans-serif;
       }
     </style>
   </head>
   <body>
     <div id="threeContainer"></div>
     <div id="container" class="container-fluid p-3">
-      <div id="containerCard" style="transition: all ease .5s;" class="bg-white px-3 rounded-5 shadow-lg overflow-y-auto mx-auto card-shrink card-full">
+      <div id="containerCard" style="transition: all ease .5s;" class="bg-light px-3 rounded-5 shadow-lg overflow-y-auto mx-auto card-shrink card-full">
         
       </div>
       <div id="placeHolderContainer" class="d-none">
@@ -56,7 +73,7 @@
           <div></div>
           <div>
             <div class="fs-4">Undangan Pernikahan</div>
-            <div class="display-4">FF</div>
+            <div class="display-4 fst-italic">FF</div>
             <div class="display-3">Fulan & Fulanah</div>
             <div class="">Ahad, 21 April 2024</div>
           </div>
@@ -65,83 +82,85 @@
             <div class="fs-3 py-2">YukDatang Team</div>
             <div style="font-size: 10pt;">*) mohon maaf apabila ada kesalahan<br>penulisan nama atau gelar</div>
           </div>
-          <div class="btn btn-primary" onclick="openInvitation()">Buka Undangan</div>
+          <div class="btn btn-dark" onclick="openInvitation()">Buka Undangan</div>
         </div>
 
-        <div id="screenHome" class="myPage d-flex justify-content-center align-items-center w-100">
-          <img style="max-height: 300px; width: 100%; height: 100%;" class="img-fluid" src="https://placehold.co/400" alt="placehold">
+        <div id="screenHome" class="myPage d-flex flex-column justify-content-center align-items-center w-100 h-100 m-0 text-center">
+          <div class="display-4 fst-italic">Fulan & Fulanah</div>
+          <div class="">Ahad, 21 April 2024</div>
         </div>
 
-        <div id="screenWelcome" class="myPage d-flex flex-column justify-content-center">
-          <div class="fs-5">Bismillahirrahmanirrahim</div>
-          <div class="fs-4">Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami</div>
+        <div id="screenWelcome" class="myPage d-flex flex-column justify-content-center h-100 m-0 text-center">
+          <div class="fst-italic mb-3">Bismillahirrahmanirrahim</div>
+          <div class="fst-italic fs-5">Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami</div>
         </div>
 
         <div id="screenGroom" class="myPage d-flex flex-column justify-content-center">
-          <img style="max-height: 250px; height: 100%;" class="img-fluid me-auto" src="https://placehold.co/400" alt="placehold">
-          <div class="fs-4">Fulan bin Abu Fulan</div>
-          <div class="lh-1">Putra dari bapak Abu Fulan</div>
-          <div class="lh-1">dan ibu Ummu Fulan</div>
+          <img style="max-height: 250px; height: 100%;" class="img-fluid me-auto mb-2 rounded-4" src="https://res.cloudinary.com/tpq-mis/image/upload/v1701323838/yukdatang-main/images/couple-01-man-min_acankr.png" alt="placehold">
+          <div class="fs-2 fw-bold">Fulan bin Abu Fulan</div>
+          <div class="lh-1 mb-2">Putra dari bapak Abu Fulan dan ibu Ummu Fulan</div>
           <div class="lh-1">@fulanmania</div>
         </div>
 
         <div id="screenBride" class="myPage d-flex flex-column justify-content-center text-end">
-          <img style="max-height: 250px; height: 100%;" class="img-fluid ms-auto" src="https://placehold.co/400" alt="placehold">
-          <div class="fs-4">Fulanah bintu Abu Fulanah</div>
-          <div class="lh-1">Putri dari bapak Abu Fulanah</div>
-          <div class="lh-1">dan ibu Ummu Fulanah</div>
+          <img style="max-height: 250px; height: 100%;" class="img-fluid ms-auto mb-2 rounded-4" src="https://res.cloudinary.com/tpq-mis/image/upload/v1701324283/yukdatang-main/images/couple-01-woman-min_q9twuz.png" alt="placehold">
+          <div class="fs-2 fw-bold">Fulanah bintu Abu Fulanah</div>
+          <div class="lh-1 mb-2">Putri dari bapak Abu Fulanah dan ibu Ummu Fulanah</div>
           <div class="lh-1">@fulannahitz</div>
         </div>
 
-        <div id="screenEvent" class="myPage d-flex flex-column justify-content-top text-center">
-          <div class="display-4 mb-3">Save the date!</div>
-          <img style="max-height: 100px; width: 100%; height: 100%;" class="img-fluid mx-auto mb-2" src="https://placehold.co/400" alt="placehold">
-          <div class="mb-2">Dengan mengharap rahmat serta ridho Allah Swt., kami bermaksud menyelenggarakan pernikahan kami yang insyaAllah akan diselenggarakan pada:</div>
-          <div class="d-flex gap-2 justify-content-evenly">
-            <div class="border px-4 py-2 rounded-3">
+        <div id="screenEvent" class="myPage d-flex flex-column text-center mh-100 m-0 py-3 pb-0">
+          <div class="display-4 fst-italic my-2 card-header">Save the date!</div>
+          <div class="mb-4 mt-auto">Dengan mengharap rahmat serta ridho Allah Swt., kami bermaksud menyelenggarakan pernikahan kami yang insyaAllah akan diselenggarakan pada:</div>
+          <div class="d-flex gap-2 justify-content-evenly pb-3 mt-auto">
+            <div class="border flex-glow-1 w-100 py-2 rounded-4">
               <div class="fs-1 lh-1">14</div>
               <div class="lh-1">Hari</div>
             </div>
-            <div class="border px-4 py-2 rounded-3">
+            <div class="border flex-glow-1 w-100 py-2 rounded-4">
               <div class="fs-1 lh-1">14</div>
               <div class="lh-1">Jam</div>
             </div>
-            <div class="border px-4 py-2 rounded-3">
+            <div class="border flex-glow-1 w-100 py-2 rounded-4">
               <div class="fs-1 lh-1">14</div>
               <div class="lh-1">Menit</div>
             </div>
-            <div class="border px-4 py-2 rounded-3">
+            <div class="border flex-glow-1 w-100 py-2 rounded-4">
               <div class="fs-1 lh-1">14</div>
               <div class="lh-1">Detik</div>
             </div>
           </div>
         </div>
 
-        <div id="screenEvent2" class="myPage d-flex flex-column justify-content-center text-center">
-          <div class="mb-3">
-            <div class="display-4 mb-3">Ijab Qabul</div>
+        <div id="screenEvent2" class="myPage d-flex flex-column text-center mh-100 m-0">
+          <div class="my-2">
+            <div class="display-4 fst-italic mb-1 card-header">Ijab Qabul</div>
             <div class="">Ahad 21 April 2024</div>
             <div class="">Pukul 08.30 pagi</div>
-            <div class="fw-bold">Gedung Serbaguna Masjid Hasanuddin Madjedi</div>
-            <div class="">Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara</div>
           </div>
-          <div>
-            <div class="btn btn-primary mb-1">Kalender</div>
-            <div class="btn btn-primary mb-1">Navigasi</div>
+          <div class="my-2 mt-auto">
+            <div class="fw-bold fs-5">Gedung Serbaguna Masjid Hasanuddin Madjedi</div>
+            <div class="fst-italic" style="font-size: 10pt;">Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara</div>
+          </div>
+          <div class="pb-2 mt-auto">
+            <div class="btn btn-dark mb-1">Kalender</div>
+            <div class="btn btn-dark mb-1">Navigasi</div>
           </div>
         </div>
 
-        <div id="screenEvent3" class="myPage d-flex flex-column justify-content-center text-center">
-          <div class="mb-3">
-            <div class="display-4 mb-3">Walimah</div>
+        <div id="screenEvent3" class="myPage d-flex flex-column text-center mh-100 m-0">
+          <div class="my-2">
+            <div class="display-4 fst-italic mb-1 card-header">Walimah</div>
             <div class="">Ahad 21 April 2024</div>
             <div class="">Pukul 09.30 pagi</div>
-            <div class="fw-bold">Gedung Serbaguna Masjid Hasanuddin Madjedi</div>
-            <div class="">Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara</div>
           </div>
-          <div>
-            <div class="btn btn-primary mb-1">Kalender</div>
-            <div class="btn btn-primary mb-1">Navigasi</div>
+          <div class="my-2 mt-auto">
+            <div class="fw-bold fs-5">Gedung Serbaguna Masjid Hasanuddin Madjedi</div>
+            <div class="fst-italic" style="font-size: 10pt;">Jl. Brig Jend. Hasan Basri No.2, Pangeran, Kec. Banjarmasin Utara</div>
+          </div>
+          <div class="pb-2 mt-auto">
+            <div class="btn btn-dark mb-1">Kalender</div>
+            <div class="btn btn-dark mb-1">Navigasi</div>
           </div>
         </div>
 
@@ -149,37 +168,107 @@
           <img style="width: 100%; height: 100%" class="img-fluid rounded-4" src="https://www.google.com/maps/d/thumbnail?mid=1pRr96dk8bzZtAoXcOJjjIJXcmjU&hl=en_US" alt="placehold">
         </div>
 
-        <div id="screenGalery" class="myPage d-flex flex-column text-center">
-          <div class="display-4">Our Love Journey</div>
-          <div class="display-6 mt-2">Pertemuan Pertama</div>
-          <div class="">Selasa, 21 April 2020</div>
-          <div class="">Pada tahun 2020 kami pertama kalI berkomunikasi mengenai pekerjaan. Dalam komunikasi tersebut kami hanya sebatas rekan kerja.</div>
-          <div class="display-6 mt-2">Khitbah</div>
-          <div class="">Fulan menemui orang tua Fulanah untuk memingangnya</div>
-          <div class="display-6 mt-2">Menikah</div>
-          <div class="">Lamaran diterima, menuju halal</div>
+        <div id="screenGalery" class="myPage d-flex flex-wrap gap-2 text-center justify-content-center">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529268/yukdatang-main/images/wedding-rings-with-ornaments_vn7qet.jpg" alt="">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529264/yukdatang-main/images/wedding-invitation-card_a74n8w.jpg" alt="">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359853/yukdatang-main/images/wedding-rings-made-white-gold-lie-cloth-flower_soqu6n.jpg" alt="">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359722/yukdatang-main/images/golden-wedding-rings-white-rose-from-wedding-bouquet_u9c9yv.jpg" alt="">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351503/yukdatang-main/images/top-view-wedding-rings-with-flowers-table_1_llwuts.jpg" alt="">
+          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351500/yukdatang-main/images/two-gold-wedding-ring-white-background_n5e5mb.jpg" alt="">
         </div>
 
-        <div id="screenStory" class="myPage d-flex flex-column justify-content-center">
-          <div class="display-4">Ya begitulah seterusnya (5)</div>
+        <div id="screenStory" class="myPage d-flex flex-column text-center mh-100 m-0">
+          <div class="mb-2 opacity-0">-</div>
+          <div class="display-4 fst-italic mt-auto mb-2">Our Love Journey</div>
+          <div class="mt-auto mb-2">
+            <div class="fs-2 mt-2 lh-1">Pertemuan Pertama</div>
+            <div class="">Selasa, 21 April 2020</div>
+            <div class="">Pada tahun 2020 kami pertama kalI berkomunikasi mengenai pekerjaan. Dalam komunikasi tersebut kami hanya sebatas rekan kerja.</div>
+          </div>
+          <div class="mt-auto mb-2">
+            <div class="fs-2 mt-2 lh-1">Khitbah</div>
+            <div class="">Fulan menemui orang tua Fulanah untuk memingangnya</div>
+          </div>
+          <div class="mt-auto mb-2">
+            <div class="fs-2 mt-2 lh-1">Menikah</div>
+            <div class="">Lamaran diterima, menuju halal</div>
+          </div>
+          <div class="opacity-0">-</div>
         </div>
 
-        <div id="screenQuote" class="myPage d-flex flex-column justify-content-center">
-          <div class="display-4">Ya begitulah seterusnya (6)</div>
+        <div id="screenQuote" class="myPage d-flex flex-column text-center fst-italic m-0 mh-100">
+          <div class="mb-3 mt-auto pt-4">Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.</div>
+          <div class="fw-bold pb-2 mb-auto">
+            Q.S. Ar-Ruum: 21
+          </div>
         </div>
 
-        <div id="screenWish" class="myPage d-flex flex-column justify-content-center">
-          <div class="display-4">Ya begitulah seterusnya (7)</div>
+        <div id="screenWish" class="myPage d-flex flex-column">
+          <div class="display-4 fst-italic card-header text-center mb-4">Ucapan & Doa</div>
+          <div class="comment-section">
+            <div class="bg-white px-3 py-4 mb-2 rounded-4 border border-dark border-opacity-10">
+              <div class="fw-bold">
+                <span><i class="bi bi-question"></i></span> Muhammad Aditya
+              </div>
+              <div>
+                Selamat ya bro Fulan, akhirnya udah gak jomblo ngenes lagi
+              </div>
+            </div>
+            <div class="bg-white px-3 py-4 mb-2 rounded-4 border border-dark border-opacity-10">
+              <div class="fw-bold">
+                <span><i class="bi bi-x"></i></span> Rizky Amelia
+              </div>
+              <div>
+                Selamat mba Fulanah dan suami, Akhirnya, samawa ya mbaku sayang
+              </div>
+            </div>
+            <div class="bg-white px-3 py-4 mb-2 rounded-4 border border-dark border-opacity-10">
+              <div class="fw-bold">
+                <span><i class="bi bi-check"></i></span> M. Iqbal Effendi
+              </div>
+              <div>
+                بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى خَيْرٍ
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div id="screenGift" class="myPage d-flex flex-column justify-content-center">
-          <div class="display-4">Ya begitulah seterusnya (8)</div>
+        <div id="screenGift" class="myPage d-flex flex-column text-center">
+          <div class="display-4 fst-italic mb-3">Love Gift</div>
+          
+          <div style="max-width: 300px; width: 100%;" class="card shadow p-3 rounded-4 mx-auto mb-2">
+            <img style="width: 100px; height: 30px; object-fit: contain;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/440px-Bank_Central_Asia.svg.png" alt="">
+            <hr>
+            <div class="text-end">
+              <div class="mt-4">82123123123</div>
+              <div>Fulan bin Fulan</div>
+            </div>
+          </div>
+          <div style="max-width: 300px; width: 100%;" class="card shadow p-3 rounded-4 mx-auto mb-2">
+            <img style="width: 100px; height: 30px; object-fit: contain;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/440px-BRI_2020.svg.png" alt="">
+            <hr>
+            <div class="text-end">
+              <div class="mt-4">82123123123</div>
+              <div>Fulanah bin Fulan</div>
+            </div>
+          </div>
+          <div style="font-size: 10pt;" class="mb-3 mt-4">
+            Saling bersalamanlah (berjabat tanganlah) kalian, maka akan hilanglah kedengkian (dendam). Saling memberi hadiahlah kalian, maka kalian akan saling mencintai dan akan hilang kebencian.
+          </div>
         </div>
 
-        <div id="screencloser" class="myPage d-flex flex-column justify-content-center">
-          <div class="display-4">Ya begitulah seterusnya (9)</div>
+        <div id="screencloser" class="myPage d-flex flex-column text-center m-0 mh-100">
+          <div class="mb-3 fs-5 pt-4">Merupakan suatu kebahagiaan bagi kami atas kehadiran Bapak/Ibu untuk memberikan doa restu</div>
+          <div class="mt-auto">Hormat kami yang mengundang</div>
+          <div class="display-4 fst-italic mb-3">Fulan & Fulanah</div>
+          <div class="mb-auto pb-2">
+            <div class="fs-5">Turut Mengundang:</div>
+            <div class="">Fulan Alpha</div>
+            <div class="">Fulanah Beta</div>
+            <div class="">Fulan Charlie</div>
+            <div class="">Fulanah Delta</div>
+          </div>
         </div>
-
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -300,12 +300,18 @@ const goTo = (index) => {
         }, 50);
     }, 500);
     manuverTo(index)
+    console.log(index)
 }
 
-const openInvitation = () => {
+const openInvitation = (newIndex) => {
     containerCard.classList.remove('card-full');
     index = 1;
-    goTo(1);
+    if(newIndex == undefined){
+    }
+    else{
+        index = newIndex;
+    }
+    goTo(index);
 }
 goTo(0);
 
@@ -396,5 +402,4 @@ threeContainer.addEventListener("wheel", function (e) {
     }
 });
 
-openInvitation();
-goTo(8);
+openInvitation(12);
