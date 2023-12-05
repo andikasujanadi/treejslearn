@@ -59,17 +59,41 @@
       .comment-section{
         font-family: 'Poppins', sans-serif;
       }
+      /* custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        transition: all ease .3s;
+        background-color: #d6dee1;
+        border-radius: 20px;
+        border: 4px solid transparent;
+        background-clip: content-box;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        transition: all ease .3s;
+        background-color: #a8bbbf;
+        border: 3px solid transparent;
+      }
     </style>
   </head>
   <body>
     <div id="threeContainer"></div>
     <div id="container" class="container-fluid p-3">
-      <div id="containerCard" style="transition: all ease .5s;" class="bg-light px-3 rounded-5 shadow-lg overflow-y-auto mx-auto card-shrink card-full">
-        
+      <div class="overflow-hidden rounded-5 shadow-lg mx-auto" style="max-width: 768px;">
+        <div id="containerCard" style="transition: all ease .5s;" class="bg-light px-3 rounded-5 overflow-y-auto card-shrink card-full">
+          
+        </div>
       </div>
       <div id="placeHolderContainer" class="d-none">
 
-        <div id="screenOpener" class="myPage text-center d-flex flex-column justify-content-between align-items-center gap-2" style="min-height: 100%;">
+        <div id="screenOpener" class="myPage text-center d-flex flex-column justify-content-between align-items-center gap-2 m-0 p-3" style="min-height: 100%;">
           <div></div>
           <div>
             <div class="fs-4">Undangan Pernikahan</div>
