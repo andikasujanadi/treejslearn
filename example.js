@@ -231,13 +231,13 @@ const scenes = [
     [screenGroom,cameraCut2],
     [screenBride,cameraCut3],
     [screenEvent,cameraCut4],
-    [screenEvent2,cameraCut4],
-    [screenEvent3,cameraCut4],
-    [screenLocation,cameraCut5],
-    [screenGalery,cameraCut6],
-    [screenStory,cameraCut1],
-    [screenQuote,cameraCut2],
-    [screenWish,cameraCut3],
+    [screenEvent2,cameraCut5],
+    [screenEvent3,cameraCut6],
+    [screenLocation,cameraCut1],
+    [screenGalery,cameraCut2],
+    [screenStory,cameraCut3],
+    [screenQuote,cameraCut4],
+    [screenWish,cameraCut5],
     [screenGift,cameraCutHigh2],
     [screencloser,cameraCutRing],
 ]
@@ -314,6 +314,18 @@ const openInvitation = (newIndex) => {
     goTo(index);
 }
 goTo(0);
+
+const cardExpand = () => {
+    containerCard.classList.add('card-full');
+}
+
+const cardMinimize = () => {
+    containerCard.classList.remove('card-full');
+}
+
+const cardToggle = () => {
+    containerCard.classList.toggle('card-full');
+}
 
 let touchstartY = 0
 let touchendY = 0
@@ -402,4 +414,4 @@ threeContainer.addEventListener("wheel", function (e) {
     }
 });
 
-openInvitation(13);
+openInvitation(12);
