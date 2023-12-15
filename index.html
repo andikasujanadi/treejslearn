@@ -344,23 +344,37 @@
 
      <!-- Modals -->
     <div class="modal fade" id="wishModal" tabindex="-1" aria-labelledby="wishModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content rounded-5 p-3">
-          <div class="display-4 fst-italic card-header text-center mb-4">Kirim Ucapan</div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="wishName" placeholder="">
-            <label for="wishName">Nama Anda</label>
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content rounded-5">
+          <div class="modal-header text-center p-0 border border-0">
+            <div class="display-4 fst-italic card-header text-center mb-4 w-100">Kirim Ucapan</div>
           </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="wishPhone" placeholder="">
-            <label for="wishPhone">Nomor Telpon/WhatsApp</label>
-          </div>
-          <div class="d-flex">
-            
-          </div>
-          <div class="form-floating">
-            <textarea class="form-control rounded-4" style="height: 150px" placeholder="Leave a comment here" id="wishMessage"></textarea>
-            <label for="wishMessage">Ucapan atau pesan</label>
+          <div class="modal-body">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="wishName" placeholder="">
+              <label for="wishName">Nama Anda</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="wishPhone" placeholder="">
+              <label for="wishPhone">Nomor Telpon/WhatsApp</label>
+            </div>
+            <div class="d-flex mb-3 gap-2">
+              <input type="radio" class="btn-check" name="wishConfirm" id="yes" autocomplete="off" checked>
+              <label class="btn btn-outline-dark rounded-4 d-flex align-items-center flex-fill justify-content-center" for="yes">Hadir</label>
+  
+              <input type="radio" class="btn-check" name="wishConfirm" id="maybe" autocomplete="off">
+              <label class="btn btn-outline-dark rounded-4 d-flex align-items-center flex-fill justify-content-center" for="maybe">Tidak bisa hadir</label>
+  
+              <input type="radio" class="btn-check" name="wishConfirm" id="no" autocomplete="off">
+              <label class="btn btn-outline-dark rounded-4 d-flex align-items-center flex-fill justify-content-center" for="no">Diusahakan</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control rounded-4" style="height: 150px" placeholder="Leave a comment here" id="wishMessage"></textarea>
+              <label for="wishMessage">Ucapan atau pesan</label>
+            </div>
+            <div class="d-flex">
+              <div class="btn btn-dark rounded-4 ms-auto">Kirim</div>
+            </div>
           </div>
       </div>
     </div>
