@@ -286,6 +286,16 @@ fetch('./data.json')
   .then(data => console.log(data))
   .catch(error => console.log(error));
 
+// leaflet map
+// geo:-6.17540,106.82683?z=19
+const openMap = () => {
+    var map = L.map('map').setView([-6.17553,106.82712], 19);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+}
+
 // navigation
 const goTo = (index) => {
     try {
@@ -341,6 +351,11 @@ const goToRelative = (newIndex) => {
 }
 
 const checkIndex = () => {
+    if(index == 8){
+        setTimeout(() => {
+            openMap();
+        }, 1000);
+    }
     if(index<1){
         index = 1;
     }
@@ -414,15 +429,5 @@ threeContainer.addEventListener("wheel", function (e) {
     }
 });
 
-// leaflet map
-// geo:-6.17540,106.82683?z=19
-setTimeout(() => {
-    var map = L.map('map').setView([-6.17540,106.82683], 19);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-}, 2000);
-
-
-openInvitation(8);
+openInvitation(12);

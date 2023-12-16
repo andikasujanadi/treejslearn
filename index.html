@@ -124,7 +124,7 @@
             <div class="fs-3 py-2">YukDatang Team</div>
             <div style="font-size: 10pt;">*) mohon maaf apabila ada kesalahan<br>penulisan nama atau gelar</div>
           </div>
-          <div class="btn btn-dark" onclick="openInvitation()">Buka Undangan</div>
+          <div class="btn btn-dark rounded-pill" onclick="openInvitation()">Buka Undangan</div>
         </div>
 
         <div id="screenHome" class="myPage d-flex flex-column justify-content-center align-items-center w-100 h-100 m-0 text-center">
@@ -215,9 +215,7 @@
         </div>
 
         <div id="screenLocation" class="myPage d-flex flex-column justify-content-center overflow-hidden" style="height:calc(100% - 2em)">
-          <div id="map" class="rounded-4" style="height: 100%; width: 100%;">
-            
-          </div>
+          <div id="map" class="rounded-4 overflow-hidden" style="height: 100%; width: 100%;"></div>
           <!-- <img style="width: 100%; height: 100%" class="img-fluid rounded-4" src="https://www.google.com/maps/d/thumbnail?mid=1pRr96dk8bzZtAoXcOJjjIJXcmjU&hl=en_US" alt="placehold"> -->
         </div>
 
@@ -386,8 +384,9 @@
               <textarea class="form-control rounded-4" style="height: 150px" placeholder="Leave a comment here" id="wishMessage"></textarea>
               <label for="wishMessage">Ucapan atau pesan</label>
             </div>
-            <div class="d-flex">
-              <div class="btn btn-dark rounded-4 ms-auto">Kirim</div>
+            <div class="d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-light bg-light border rounded-4" data-bs-dismiss="modal">Batal</button>
+              <div class="btn btn-dark rounded-4">Kirim</div>
             </div>
           </div>
       </div>
