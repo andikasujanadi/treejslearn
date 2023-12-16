@@ -238,7 +238,8 @@ const scenes = [
     [screenStory,cameraCut3],
     [screenQuote,cameraCut4],
     [screenWish,cameraCut5],
-    [screenGift,cameraCutHigh2],
+    [screenGift,cameraCut6],
+    [screenLiveFilter,cameraCutHigh2],
     [screencloser,cameraCutRing],
 ]
 
@@ -429,5 +430,19 @@ threeContainer.addEventListener("wheel", function (e) {
     }
 });
 
+// fslightbox
+var lightbox = new FsLightbox();
+lightbox.props.sources = [
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1700529268/yukdatang-main/images/wedding-rings-with-ornaments_vn7qet.jpg",
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1700529264/yukdatang-main/images/wedding-invitation-card_a74n8w.jpg",
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1697359853/yukdatang-main/images/wedding-rings-made-white-gold-lie-cloth-flower_soqu6n.jpg",
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1697359722/yukdatang-main/images/golden-wedding-rings-white-rose-from-wedding-bouquet_u9c9yv.jpg",
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1697351503/yukdatang-main/images/top-view-wedding-rings-with-flowers-table_1_llwuts.jpg",
+    "https://res.cloudinary.com/tpq-mis/image/upload/v1697351500/yukdatang-main/images/two-gold-wedding-ring-white-background_n5e5mb.jpg",
+];
 
-openInvitation(12);
+const openGallery = (i) => {
+    lightbox.open(i);
+}
+
+openInvitation(9);

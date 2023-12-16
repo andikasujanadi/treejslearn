@@ -220,12 +220,12 @@
         </div>
 
         <div id="screenGalery" class="myPage d-flex flex-wrap gap-2 text-center justify-content-center">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529268/yukdatang-main/images/wedding-rings-with-ornaments_vn7qet.jpg" alt="">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529264/yukdatang-main/images/wedding-invitation-card_a74n8w.jpg" alt="">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359853/yukdatang-main/images/wedding-rings-made-white-gold-lie-cloth-flower_soqu6n.jpg" alt="">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359722/yukdatang-main/images/golden-wedding-rings-white-rose-from-wedding-bouquet_u9c9yv.jpg" alt="">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351503/yukdatang-main/images/top-view-wedding-rings-with-flowers-table_1_llwuts.jpg" alt="">
-          <img class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351500/yukdatang-main/images/two-gold-wedding-ring-white-background_n5e5mb.jpg" alt="">
+          <img onclick="openGallery(0)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529268/yukdatang-main/images/wedding-rings-with-ornaments_vn7qet.jpg" alt="">
+          <img onclick="openGallery(1)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1700529264/yukdatang-main/images/wedding-invitation-card_a74n8w.jpg" alt="">
+          <img onclick="openGallery(2)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359853/yukdatang-main/images/wedding-rings-made-white-gold-lie-cloth-flower_soqu6n.jpg" alt="">
+          <img onclick="openGallery(3)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697359722/yukdatang-main/images/golden-wedding-rings-white-rose-from-wedding-bouquet_u9c9yv.jpg" alt="">
+          <img onclick="openGallery(4)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351503/yukdatang-main/images/top-view-wedding-rings-with-flowers-table_1_llwuts.jpg" alt="">
+          <img onclick="openGallery(5)" class="img-fluid" style="height: calc(24.3vh - 16px); width: 31%;" src="https://res.cloudinary.com/tpq-mis/image/upload/v1697351500/yukdatang-main/images/two-gold-wedding-ring-white-background_n5e5mb.jpg" alt="">
         </div>
 
         <div id="screenStory" class="myPage d-flex flex-column text-center mh-100 m-0">
@@ -339,6 +339,13 @@
           </div>
         </div>
 
+        <div id="screenLiveFilter" class="myPage d-flex flex-column text-center h-100 m-0">
+          <div class="h2 mt-auto">Jangan lewatkan acaranya, mari bergabung melalui live streaming</div>
+          <div class="btn btn-dark rounded-4 mx-auto mb-3"><i class="bi bi-youtube me-2"></i>Live YouTube</div>
+          <div class="h2">Abadikan momen dengan filter eksklusif pernikahan kami</div>
+          <div class="btn btn-dark rounded-4 mx-auto mb-auto"><i class="bi bi-instagram me-2"></i>Buka filter IG</div>
+        </div>
+
         <div id="screencloser" class="myPage d-flex flex-column text-center m-0 mh-100">
           <div class="mb-3 fs-5 pt-4">Merupakan suatu kebahagiaan bagi kami atas kehadiran Bapak/Ibu untuk memberikan doa restu</div>
           <div class="mt-auto">Hormat kami yang mengundang</div>
@@ -399,6 +406,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/fslightbox@3.4.1/index.min.js"></script>
     <script src="example.js"></script>
   </body>
 </html>
