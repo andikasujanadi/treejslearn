@@ -414,4 +414,15 @@ threeContainer.addEventListener("wheel", function (e) {
     }
 });
 
-openInvitation(12);
+// leaflet map
+// geo:-6.17540,106.82683?z=19
+setTimeout(() => {
+    var map = L.map('map').setView([-6.17540,106.82683], 19);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+}, 2000);
+
+
+openInvitation(8);
