@@ -284,7 +284,63 @@ animate();
 // can't fetch yet bruh
 fetch('./data.json')
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => {
+    openerHost.innerHTML = data.host;
+    openerReceiver.innerHTML = data.receiver;
+
+    homeHost.innerHTML = data.host;
+
+    welcomeHeading.innerHTML = data.content.welcome.headingText;
+    welcomeText.innerHTML = data.content.welcome.welcomeText;
+
+    groomName.innerHTML = data.content.groom.fullName;
+    if(data.content.groom.father){
+        groomParents.innerHTML = "Putra dari bapak "+data.content.groom.father;
+    }
+    if(data.content.groom.mother){
+        groomParents.innerHTML += " dan ibu "+data.content.groom.mother;
+    }
+    if(data.content.groom.account.instagram){
+        groomIg.classList.remove('d-none');
+        groomIg.setAttribute('href', `https://instagram.com/${data.content.groom.account.instagram}`);
+        groomIg.innerHTML += data.content.groom.account.instagram;
+    }
+    if(data.content.groom.account.facebook){
+        groomFb.classList.remove('d-none');
+        groomFb.setAttribute('href', `https://facebook.com/${data.content.groom.account.facebook}`);
+        groomFb.innerHTML += data.content.groom.account.facebook;
+    }
+    if(data.content.groom.account.twitter){
+        groomTw.classList.remove('d-none');
+        groomTw.setAttribute('href', `https://twitter.com/${data.content.groom.account.twitter}`);
+        groomTw.innerHTML += data.content.groom.account.twitter;
+    }
+
+    brideName.innerHTML = data.content.bride.fullName;
+    if(data.content.bride.father){
+        brideParents.innerHTML = "Putri dari bapak "+data.content.bride.father;
+    }
+    if(data.content.bride.mother){
+        brideParents.innerHTML += " dan ibu "+data.content.bride.mother;
+    }
+    if(data.content.bride.account.instagram){
+        brideIg.classList.remove('d-none');
+        brideIg.setAttribute('href', `https://instagram.com/${data.content.bride.account.instagram}`);
+        brideIg.innerHTML += data.content.bride.account.instagram;
+    }
+    if(data.content.bride.account.facebook){
+        brideFb.classList.remove('d-none');
+        brideFb.setAttribute('href', `https://facebook.com/${data.content.bride.account.facebook}`);
+        brideFb.innerHTML += data.content.bride.account.facebook;
+    }
+    if(data.content.bride.account.twitter){
+        brideTw.classList.remove('d-none');
+        brideTw.setAttribute('href', `https://twitter.com/${data.content.bride.account.twitter}`);
+        brideTw.innerHTML += data.content.bride.account.twitter;
+    }
+
+    
+    })
   .catch(error => console.log(error));
 
 // leaflet map
@@ -311,7 +367,6 @@ const goTo = (index) => {
         }, 50);
     }, 500);
     manuverTo(index)
-    console.log(index)
 }
 
 const openInvitation = (newIndex) => {
@@ -445,4 +500,4 @@ const openGallery = (i) => {
     lightbox.open(i);
 }
 
-openInvitation(9);
+openInvitation(6);

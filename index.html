@@ -116,46 +116,46 @@
           <div>
             <div class="fs-4">Undangan Pernikahan</div>
             <div class="display-4 fst-italic">FF</div>
-            <div class="display-3">Fulan & Fulanah</div>
+            <div id="openerHost" class="display-3"></div>
             <div class="">Ahad, 21 April 2024</div>
           </div>
-          <div class="border border-2 border-black border-opacity-10 px-4 py-2 rounded-4">
+          <div class="border border-2 border-black border-opacity-10 px-4 py-2 rounded-4 bg-light">
             <div class="">Kepada Bapak/Ibu/Saudara/i</div>
-            <div class="fs-3 py-2">YukDatang Team</div>
+            <div id="openerReceiver" class="fs-3 py-2"></div>
             <div style="font-size: 10pt;">*) mohon maaf apabila ada kesalahan<br>penulisan nama atau gelar</div>
           </div>
           <div class="btn btn-dark rounded-pill" onclick="openInvitation()">Buka Undangan</div>
         </div>
 
         <div id="screenHome" class="myPage d-flex flex-column justify-content-center align-items-center w-100 h-100 m-0 text-center">
-          <div class="display-4 fst-italic">Fulan & Fulanah</div>
+          <div id="homeHost" class="display-4 fst-italic"></div>
           <div class="">Ahad, 21 April 2024</div>
         </div>
 
         <div id="screenWelcome" class="myPage d-flex flex-column justify-content-center h-100 m-0 text-center">
-          <div class="fst-italic mb-3">Bismillahirrahmanirrahim</div>
-          <div class="fst-italic fs-5">Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami</div>
+          <div id="welcomeHeading" class="fst-italic mb-3"></div>
+          <div id="welcomeText" class="fst-italic fs-5"></div>
         </div>
 
         <div id="screenGroom" class="myPage d-flex flex-column justify-content-center gap-3" style="min-height: calc(100% - 32px);">
           <img style="max-height: 250px; height: 100%;" class="img-fluid me-auto mb-2 rounded-4" src="https://res.cloudinary.com/tpq-mis/image/upload/v1701323838/yukdatang-main/images/couple-01-man-min_acankr.png" alt="placehold">
-          <div class="fs-2 fw-bold">Fulan bin Abu Fulan</div>
-          <div class="lh-1 mb-2">Putra dari bapak Abu Fulan dan ibu Ummu Fulan</div>
+          <div id="groomName" class="fs-2 fw-bold"></div>
+          <div id="groomParents" class="lh-1 mb-2"></div>
           <div class="d-flex gap-2 flex-wrap mt-auto">
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-instagram me-2"></i>fulanmania</a>
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-twitter-x me-2"></i>fulanmania</a>
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-facebook me-2"></i>fulanmania</a>
+            <a target="_blank" href="" id="groomIg" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-instagram me-2"></i></a>
+            <a target="_blank" href="" id="groomTw" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-twitter-x me-2"></i></a>
+            <a target="_blank" href="" id="groomFb" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-facebook me-2"></i></a>
           </div>
         </div>
 
         <div id="screenBride" class="myPage d-flex flex-column justify-content-center gap-3 text-end" style="min-height: calc(100% - 32px);">
           <img style="max-height: 250px; height: 100%;" class="img-fluid ms-auto mb-2 rounded-4" src="https://res.cloudinary.com/tpq-mis/image/upload/v1701324283/yukdatang-main/images/couple-01-woman-min_q9twuz.png" alt="placehold">
-          <div class="fs-2 fw-bold">Fulanah bintu Abu Fulanah</div>
-          <div class="lh-1 mb-2">Putri dari bapak Abu Fulanah dan ibu Ummu Fulanah</div>
+          <div id="brideName" class="fs-2 fw-bold"></div>
+          <div id="brideParents" class="lh-1 mb-2"></div>
           <div class="d-flex gap-2 flex-wrap justify-content-end mt-auto">
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-instagram me-2"></i>fulanahitz</a>
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-twitter-x me-2"></i>fulanahitz</a>
-            <a href="" class="lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-facebook me-2"></i>fulanahitz</a>
+            <a target="_blank" href="" id="brideIg" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-instagram me-2"></i></a>
+            <a target="_blank" href="" id="brideTw" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-twitter-x me-2"></i></a>
+            <a target="_blank" href="" id="brideFb" class="d-none lh-1 link-underline link-underline-opacity-0 text-dark"><i class="bi bi-facebook me-2"></i></a>
           </div>
         </div>
 
