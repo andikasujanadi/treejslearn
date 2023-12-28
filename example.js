@@ -339,6 +339,18 @@ fetch('./data.json')
         brideTw.innerHTML += data.content.bride.account.twitter;
     }
 
+    // date
+
+    // ijiab qabul
+    // walimah qabul
+    // peta
+    // galeri
+    // love story
+    // aruum
+    // ucapan dan doa
+    // love gift
+    // live yt filter ig
+    // minta doa restu
     
     })
   .catch(error => console.log(error));
